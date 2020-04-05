@@ -5,6 +5,7 @@ function Calculator(leftOperand, operator, rightOperand) {
 
     this.calculateResult = function() {
         let result = 0;
+        let notDivisible = "";
 
         switch (this.operator) {
             case '+':
@@ -17,11 +18,14 @@ function Calculator(leftOperand, operator, rightOperand) {
                 result = this.leftOperand * this.rightOperand;
                 break;
             case '/':
+                if (this.rightOperand === 0) {
+                    notDivisible = 'Not divisible by zero!';
+                }
                 result = this.leftOperand / this.rightOperand;
                 break;
         }
 
-        return result;
+        return notDivisible.length === 0 ? result : notDivisible;
     }
 }
 
