@@ -23,6 +23,12 @@ function Calculator(leftOperand, operator, rightOperand) {
                 }
                 result = this.leftOperand / this.rightOperand;
                 break;
+            case '%':
+                result = this.leftOperand % this.rightOperand;
+                break;
+            case 'pow':
+                result = Math.pow(this.leftOperand, this.rightOperand);
+                break;
         }
 
         return notDivisible.length === 0 ? result : notDivisible;
